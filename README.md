@@ -11,6 +11,6 @@ in use:
 - rofi
 
 
-wallpaper:
+wallpaper (unknown author):
 
 ![nord mountains](/resources/nord_mountain_range.png)
