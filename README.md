@@ -9,3 +9,8 @@ in use:
 - gogh for theming (tokyo night)
 - polybar
 - rofi
+
+
+wallpaper:
+
+![nord mountains](/resources/nord_mountain_range.png)
