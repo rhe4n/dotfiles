@@ -208,7 +208,7 @@ exec --no-startup-id polybar -r example
 exec --no-startup-id /usr/libexec/gnome-settings-daemon-localeexec
 
 ##mail alert
-exec --no-startup-id loginmail &
+#exec --no-startup-id loginmail &
 
 ##eww
 #exec --no-startup-id eww daemon
@@ -222,8 +222,12 @@ exec --no-startup-id loginmail &
 bindsym $mod+p exec --no-startup-id ~/.config/rofi/bin/launcher_text
 bindsym $mod+d exec --no-startup-id ~/.config/rofi/bin/launcher_text
 bindsym $mod+l exec --no-startup-id lock
+bindsym $mod+y exec --no-startup-id ~/.fehbg
+bindsym $mod+u exec --no-startup-id "i3 gaps inner current set 0; i3 gaps outer current set 0"
+bindsym $mod+i exec --no-startup-id "i3 gaps inner current set 20; i3 gaps top current set 22"
 
-
+bindsym $mod+j move workspace to output left
+bindsym $mod+k move workspace to output right
 
 #disable borders for gaps
 for_window [class=".*"] border pixel 0
