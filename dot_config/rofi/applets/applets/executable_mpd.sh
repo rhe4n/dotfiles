@@ -48,7 +48,8 @@ previous=""
 options="$previous\n$play_pause\n$stop\n$next\n$tog_repeat\n$tog_random"
 
 # Get the current playing song
-current=$(mpc -f "%title%" current)
+#current=$(mpc -f "%title%" current)
+current=$(mpc current)
 # If mpd isn't running it will return an empty string, we don't want to display that
 if [[ -z "$current" ]]; then
     current="-"

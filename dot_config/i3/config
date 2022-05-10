@@ -26,11 +26,11 @@ exec --no-startup-id dex --autostart --environment i3
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
-exec --no-startup-id xss-lock -- i3lock
+exec --no-startup-id xss-lock -- lockwrap
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+# exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork -c 3f3f3f -k -e --inside-color=3f3f3f00
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -174,6 +174,11 @@ mode "resize" {
         bindsym Up resize grow height 10 px or 10 ppt
         bindsym Right resize grow width 10 px or 10 ppt
 
+	bindsym Shift+Left resize shrink width 50 px or 50 ppt
+        bindsym Shift+Down resize shrink height 50 px or 50 ppt
+        bindsym Shift+Up resize grow height 50 px or 50 ppt
+        bindsym Shift+Right resize grow width 50 px or 50 ppt
+
         # back to normal: Enter or Escape or $mod+r
         bindsym Return mode "default"
         bindsym Escape mode "default"
@@ -194,6 +199,7 @@ bindsym $mod+r mode "resize"
 
 #execs
 
+#screens
 exec --no-startup-id xrandr --output HDMI-1 --auto --left-of eDP-1
 
 ##picom
@@ -202,30 +208,25 @@ exec --no-startup-id picom
 ##feh background
 exec --no-startup-id ~/.fehbg &
 
-##polybar
-exec --no-startup-id polybar -r example
-
 ##gnome daemons
 exec --no-startup-id /usr/libexec/gnome-settings-daemon-localeexec
 
 ##kdeconnect
 exec --no-startup-id kdeconnect-cli
 
-##mail alert
-#exec --no-startup-id loginmail &
+#mpd again
+exec --no-startup-id mpd
+exec --no-startup-id mpc update
+#exec --no-startup-id mpd-mpris
 
-##eww
-#exec --no-startup-id eww daemon
-#exec --no-startup-id eww open datetimewindow
-
-
+##polybar
+exec --no-startup-id launch_polybar
 
 #bindings
-#bindsym $mod+p exec rofi -show run
-#bindsym $mod+d exec rofi -show run
-bindsym $mod+p exec --no-startup-id ~/.config/rofi/bin/launcher_text
 bindsym $mod+d exec --no-startup-id ~/.config/rofi/bin/launcher_text
+bindsym $mod+m exec --no-startup-id ~/.config/rofi/bin/applet_mpd
 bindsym $mod+l exec --no-startup-id "loginctl lock-session"
+bindsym $mod+n exec --no-startup-id "mpc next"
 bindsym $mod+y exec --no-startup-id ~/.fehbg
 bindsym $mod+u exec --no-startup-id "i3 gaps inner current set 0; i3 gaps outer current set 0"
 bindsym $mod+i exec --no-startup-id "i3 gaps inner current set 20; i3 gaps top current set 22"

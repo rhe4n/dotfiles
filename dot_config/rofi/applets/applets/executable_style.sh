@@ -3,9 +3,9 @@
 # Available Styles
 # >> Created and tested on : rofi 1.6.0-1
 #
-# square     circle     rounded
+# square     circle     rounded     nord
 
-style="square"
+style="nord"
 
 # uncomment these lines to enable random style
 #styles=('square' 'circle' 'rounded')

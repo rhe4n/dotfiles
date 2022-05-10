@@ -1,5 +1,10 @@
 /*
- * Author  : rhe4n
+ *
+ * Author  : Aditya Shakya
+ * Mail    : adi1090x@gmail.com
+ * Github  : @adi1090x
+ * Twitter : @adi1090x
+ *
  */
 
 configuration {
@@ -9,50 +14,49 @@ configuration {
 	sidebar-mode: 					false;
 }
 
-@import "../../../styles/colors.rasi"
+@import "../../../styles/nord.rasi"
 
 * {
-    background-color:               @background;
-    text-color:                     @foreground;
+    background-color:               @bg;
+    text-color:                     @fg;
 }
 
 window {
     transparency:                   "real";
-    border-radius:                  40px;
+    border-radius:                  2px;
     location:                       southeast;
 	width:							500px;
-    x-offset:                       -15px;
-    y-offset:                       -45px;
+    x-offset:                       -40px;
+    y-offset:                       -40px;
 }
 
 prompt {
     enabled: 						true;
     padding:                        10px;
-	background-color: 				@background-light;
-	text-color: 					@accent;
-    border:                  		0px 0px 2px 0px;
-    border-radius:                  25px;
-    border-color:                  	@accent;
+	background-color: 				@bg;
+	text-color: 					@fg;
+    border:                  		2px 2px 2px 2px;
+    border-radius:                  0px;
+    border-color:                  	@ac;
 }
 
 textbox-prompt-colon {
 	expand: 						false;
 	str: 							" MPD ";
-	background-color: 				@accent;
-	text-color: 					@background;
+	background-color: 				@ac;
+	text-color: 					@bg;
     padding:                        12px 10px 0px 10px;
-    border-radius:                  25px;
 }
 
 inputbar {
 	children: 						[ textbox-prompt-colon, prompt ];
-    spacing:                        12px;
-    background-color:               @background;
-    text-color:                     @foreground;
+    spacing:                        0px;
+    background-color:               @bg;
+    text-color:                     @fg;
     expand:                         false;
     border:                  		0px;
     border-radius:                  0px;
-    border-color:                  	@accent;
+    border-color:                  	@ac;
     margin:                         0px 0px 0px 0px;
     padding:                        0px;
     position:                       center;
@@ -68,17 +72,17 @@ listview {
 }
 
 mainbox {
-    background-color:               @background;
+    background-color:               @bg;
     children:                       [ inputbar, listview ];
     spacing:                        12px;
     margin:                         12px;
 }
 
 element {
-    background-color:               @background-light;
-    text-color:                     @foreground;
+    background-color:               @bg;
+    text-color:                     @fg;
     orientation:                    vertical;
-    border-radius:                  100%;
+    border-radius:                  0px;
 }
 
 element-text {
@@ -93,31 +97,37 @@ element-text {
 
 element normal.urgent,
 element alternate.urgent {
-    background-color:               @off;
-    text-color:                     @background;
-    border-radius:                  100%;
+    background-color:               @bg;
+    text-color:                     @fg;
+    border-radius:                  0px;
 }
 
 element normal.active,
 element alternate.active {
-    background-color:               @on;
-    text-color:                     @background;
+    background-color:               @bg;
+    text-color:                     @fg;
+    border-radius:                  12px;
+
+    border:                  		2px;
+    border-radius:                  0px;
+    border-color:                  	@ac;
 }
 
 element selected {
-    background-color:               @background-light;
-    text-color:                     @accent;
-    border:                  		0px 0px 2px 0px;
-    border-radius:                  100%;
-    border-color:                  	@accent;
+    background-color:               @bg;
+    text-color:                     @ac;
 }
 
 element selected.urgent {
-    background-color:               @on;
-    text-color:                     @background;
+    background-color:               @bg;
+    text-color:                     @ac;
 }
 
 element selected.active {
-    background-color:               @off;
-    color:                          @background;
+    background-color:               @bg;
+    color:                          @ac;
+
+    border:                  		2px;
+    border-radius:                  0px;
+    border-color:                  	@ac;
 }
