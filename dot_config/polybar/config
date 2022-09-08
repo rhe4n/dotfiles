@@ -82,8 +82,8 @@ font-2 = Droid Sans:pixelsize=10;1
 
 modules-left = i3
 modules-center = mpd
-;modules-right = filesystem alsa pulseaudio memory cpu wlan eth battery date powermenu
-modules-right = filesystem alsa cpu memory vpn wlan battery date powermenu
+;modules-right = filesystem alsa memory cpu wlan eth battery date powermenu
+modules-right = phone filesystem alsa cpu memory wlan battery date powermenu
 
 
 tray-position = right
@@ -251,14 +251,14 @@ interval = 3.0
 
 format-connected = %{A:nm-connection-editor&:}<ramp-signal> <label-connected>%{A}
 format-connected-underline = ${colors.violet}
-label-connected = " connected" 
+label-connected = " up" 
 ;%essid%
 
 ;format-disconnected =
 ;wlan-prefix = " "
 format-disconnected = %{A:nm-connection-editor&:}<label-disconnected>%{A}
 format-disconnected-underline = ${colors.transparent}
-label-disconnected = " disconnected"
+label-disconnected = " down"
 label-disconnected-foreground = ${colors.foreground-alt}
 
 click-left = nm-connection-editor
@@ -405,6 +405,17 @@ animation-charging-framerate = 150
 animation-discharging-0 = 
 animation-discharging-foreground = ${colors.foreground-alt}
 animation-discharging-framerate = 750
+
+[module/phone]
+type = custom/script
+exec = echo ""
+click-left = kdeconnect-cli --ping -n rhedmi
+click-right = scrcpy -S --power-off-on-close -m 1080 -b 4M
+format = <label>
+format-foreground = ${colors.blue}
+format-padding = 0
+;format-underline = ${colors.blue}
+interval = 90
 
 [module/temperature]
 type = internal/temperature

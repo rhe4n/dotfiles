@@ -226,23 +226,17 @@ exec --no-startup-id launch_polybar
 bindsym $mod+d exec --no-startup-id ~/.config/rofi/bin/launcher_text
 bindsym $mod+m exec --no-startup-id ~/.config/rofi/bin/applet_mpd
 bindsym $mod+l exec --no-startup-id "loginctl lock-session"
+bindsym $mod+n exec --no-startup-id "mpc next"
 bindsym $mod+y exec --no-startup-id ~/.fehbg
 bindsym $mod+u exec --no-startup-id "i3 gaps inner current set 0; i3 gaps outer current set 0"
 bindsym $mod+i exec --no-startup-id "i3 gaps inner current set 20; i3 gaps top current set 22"
-
-bindsym $mod+n exec --no-startup-id "playerctl next"
-bindsym $mod+Shift+n exec --no-startup-id "playerctl previous"
-bindsym $mod+p exec --no-startup-id "playerctl play-pause"
 
 bindsym $mod+j move workspace to output left
 bindsym $mod+k move workspace to output right
 
 #disable borders for gaps
 for_window [class=".*"] border pixel 0
-for_window [class="scrcpy"] floating enable
 
 #gaps
 gaps inner 20
 gaps top 22
-
-
